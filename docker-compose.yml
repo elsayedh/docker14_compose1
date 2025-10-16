@@ -2,7 +2,7 @@ version: '2'
 
 services:
   db:
-    image: postgres:17.6
+    image: postgres:16.10
     environment:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo18@2024
@@ -10,10 +10,10 @@ services:
     restart: always
     shm_size: '64gb'
     volumes:
-      - odoo-db18-data:/var/lib/postgresql/data
+      - odoo-db14-data:/var/lib/postgresql/data
 
-  odoo18:
-    image: odoo:18.0
+  odoo14:
+    image: odoo:14.0
     depends_on:
       - db
     ports:
@@ -24,14 +24,14 @@ services:
       - DB_PORT=5432
       - DB_USER=odoo
       - DB_PASSWORD=odoo18@2024
-      - DB_NAME=postgres
+ 
     volumes:
-      - odoo-web18-data:/var/lib/odoo
+      - odoo-web14-data:/var/lib/odoo
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
     restart: always
     shm_size: '16gb'
 
 volumes:
-  odoo-db18-data:
-  odoo-web18-data:
+  odoo-db14-data:
+  odoo-web14-data:
