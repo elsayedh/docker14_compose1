@@ -23,6 +23,7 @@ services:
       - DB_HOST=db
       - DB_PORT=5432
       - DB_USER=odoo
+      - DB_PASSWORD=odoo18@2024
  
     volumes:
       - odoo-web14-data:/var/lib/odoo
